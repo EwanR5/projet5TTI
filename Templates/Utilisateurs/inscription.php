@@ -7,39 +7,38 @@
     <title>Inscription</title>
 </head>
 <body>
-    <h1>Inscription</h1>
     <form method="post" action="">
         <fieldset>
-            <legend>S'inscrire</legend>
+        <legend><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Inscription<?php endif ?></legend>
             <div>
                 <label for="pseudo"> Entrez votre pseudo : </label>
-                <input name="pseudo" type="text" id="pseudo">
+                <input name="pseudo" type="text" id="pseudo" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurPseudo ?><?php endif ?>">
                 <?php if(isset($messageErrorLogin["pseudo"])) : ?><p> <?= $messageErrorLogin["pseudo"] ?> </p> <?php endif ?>
             </div>
             <div>
                 <label for="email">Entrez votre Email :</label>
-                <input name="email" type="email" id="email">
+                <input name="email" type="email" id="email" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurEmail ?><?php endif ?>">
                 <?php if(isset($messageErrorLogin["email"])) : ?><p> <?= $messageErrorLogin["email"] ?> </p> <?php endif ?>
             </div>
             <div>
                 <label for="prenom"> Entrez votre prenom : </label>
-                <input name="prenom" type="text" id="prenom">
+                <input name="prenom" type="text" id="prenom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurPrenom ?><?php endif ?>">
                 <?php if(isset($messageErrorLogin["prenom"])) : ?><p> <?= $messageErrorLogin["prenom"] ?> </p> <?php endif ?>
             </div>
             <div>
                 <label for="nom"> Entrez votre nom : </label>
-                <input name="nom" type="text" id="nom">
+                <input name="nom" type="text" id="nom" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurNom ?><?php endif ?>">
                 <?php if(isset($messageErrorLogin["nom"])) : ?><p> <?= $messageErrorLogin["nom"] ?> </p> <?php endif ?>
             </div>
             <div>
                 <label for="mot de passe">Entrez votre mot de passe : (8 caractères minimum)</label>
-                <input name="mot_de_passe" type="password" id="mot de passe" minlength="8">
+                <input name="mot_de_passe" type="password" id="mot de passe" minlength="8" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurMdp ?><?php endif ?>">
                 <?php if(isset($messageErrorLogin["mot_de_passe"])) : ?><p> <?= str_replace('_', ' ', $messageErrorLogin["mot_de_passe"] )?> </p> <?php endif ?>
             </div>
         </fieldset>
         <fieldset>
             <legend>Bouton Inscription</legend>
-            <input type="submit" value="S'inscrire" name="btnEnvoi">
+            <button name="btnEnvoi" value="envoyer"><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>S'inscrire<?php endif ?></button>
         </fieldset>
     </form>
 </body>

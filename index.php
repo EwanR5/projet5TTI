@@ -26,7 +26,9 @@
     <header>
         <ul class="flex space-evenly">
             <li class="menu"><a href="/">Home</a></li>
-            <li  class="menu"><a href="profil">Page profil</a></li>
+                <?php if(isset($_SESSION['user'])) : ?>
+                    <li  class="menu"><a href="profil">Page profil</a></li>
+                <?php endif ?>
                 <?php if(isset($_SESSION['user'])) : ?>
                     <li  class="menu"><a href="deconnexion">Déconnexion</a></li>
                 <?php else : ?>

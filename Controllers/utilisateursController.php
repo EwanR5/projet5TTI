@@ -14,7 +14,8 @@ if ($uri === "/connexion") {
     	}
     }
     require_once "Templates/utilisateurs/connexion.php";
-} elseif ($uri === "/inscription") {
+}
+elseif ($uri === "/inscription") {
     if (isset ($_POST ['btnEnvoi'])) {
         $messageErrorLogin = verifData();
         if(!isset($messageErrorLogin)){
@@ -23,12 +24,26 @@ if ($uri === "/connexion") {
     	}
     }
     require_once "Templates/Utilisateurs/inscription.php";
-} elseif ($uri === "/deconnexion") {
+}
+elseif ($uri === "/deconnexion") {
     session_destroy();
     header('location:/connexion');
-} elseif ($uri === "/profil") {
+}
+elseif ($uri === "/profil") {
     require_once "Templates/Utilisateurs/profil.php";
 }
+elseif ($uri === "/modifierProfil") {
+    if(isset($_POST["btnEnvoi"])){
+        $messageErrorLogin = verifData();
+        if(!isset($messageErrorLogin)){
+            MiseAJourUtilisateur($pdo);
+        relancerSession($pdo);
+        header("location:/profil");
+    	}
+    }
+    require_once "Templates/utilisateurs/inscription.php";
+}
+
 
 function verifData() {
     foreach ($_POST as $key => $value) {
