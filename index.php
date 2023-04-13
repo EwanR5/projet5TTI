@@ -1,17 +1,6 @@
 <?php
     session_start();
     require_once "Config/databaseConnection.php";
-    /*try {
-        $query = "SELECT * FROM utilisateurs";
-        $ajoute = $dbh -> prepare($query);
-        $ajoute -> execute();
-        $biens = $ajoute -> fetchALL();
-    }
-    catch(PDOExeption $e) {
-        $message = $e->getMessage();
-        die($message);
-    }
-    echo '<pre>' , var_dump($biens) , '<pre>';*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,10 +8,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/index.css">
     <title>Index</title>
 </head>
 <body>
-
+    
     <header>
         <ul class="flex space-evenly">
             <li class="menu"><a href="/">Home</a></li>
@@ -41,6 +31,7 @@
         <?php 
             require_once "Controllers/championsController.php";
             require_once "Controllers/utilisateursController.php";
+            require_once "Controllers/equipesController.php";
         ?>
     </main>
     <footer>

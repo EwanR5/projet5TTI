@@ -27,7 +27,7 @@ elseif ($uri === "/inscription") {
 }
 elseif ($uri === "/deconnexion") {
     session_destroy();
-    header('location:/connexion');
+    header('location:/');
 }
 elseif ($uri === "/profil") {
     require_once "Templates/Utilisateurs/profil.php";
@@ -42,6 +42,12 @@ elseif ($uri === "/modifierProfil") {
     	}
     }
     require_once "Templates/utilisateurs/inscription.php";
+}
+elseif ($uri === "/supprimerProfil") {
+    SupprimerChampionsEquipeDeLUtilisateur($pdo);
+    SupprimerEquipesDeLUtilisateur($pdo);
+    SupprimerUtilisateur($pdo);
+    header("location:/deconnexion");
 }
 
 

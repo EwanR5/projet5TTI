@@ -6,5 +6,5 @@ try {
     ]);
 }
 catch (PDOExeption $e) {
-    die("il y a une erreur : " . $e->getMessage());
+    die("Il y a une erreur : " . $e->getMessage());
 }

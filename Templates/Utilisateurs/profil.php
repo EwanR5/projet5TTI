@@ -27,5 +27,6 @@
         </div>
 
         <a href="/modifierProfil">Modifier votre profil</a>
+        <a href="/supprimerProfil">Supprimer votre profil</a>
 </body>
 </html>

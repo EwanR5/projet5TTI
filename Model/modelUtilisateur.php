@@ -55,6 +55,20 @@ function MiseAJourUtilisateur($pdo)
     }
 }
 
+function SupprimerUtilisateur($pdo)
+{
+    try {
+        $query = "Delete * from utilisateurs where utilisateurId = :utilisateurId";
+        $SupprimerUtilisateur = $pdo->prepare($query);
+        $SupprimerUtilisateur->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
 function relancerSession($pdo)
 {
     try {
