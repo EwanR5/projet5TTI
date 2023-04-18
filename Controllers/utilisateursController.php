@@ -43,9 +43,8 @@ elseif ($uri === "/modifierProfil") {
     }
     require_once "Templates/utilisateurs/inscription.php";
 }
-elseif ($uri === "/supprimerProfil") {
-    SupprimerChampionsEquipeDeLUtilisateur($pdo);
-    SupprimerEquipesDeLUtilisateur($pdo);
+elseif ($uri === "/supprimerProfil") {;
+    SupprimerEquipesUtilisateur($pdo);
     SupprimerUtilisateur($pdo);
     header("location:/deconnexion");
 }

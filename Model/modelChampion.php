@@ -13,6 +13,21 @@ function SelectAllChampion($pdo)
         die($message);
     }
 }
+function CreationChampion($pdo)
+{
+    try{
+        $query = "insert into champions (championNom, championRole) values (:championNom, :championRole)";
+        $newUser = $pdo->prepare($query);
+        $newUser->execute([
+            'championNom' => $_POST["nom"],
+            'championRole' => $_POST["role"],
+        ]);
+    }
+    catch(PDOException $e){
+        $message = $e->getMessage();
+        die($message);
+    }
+}
 function SupprimerChampionsEquipeDeLUtilisateur($pdo)
 {
     try {

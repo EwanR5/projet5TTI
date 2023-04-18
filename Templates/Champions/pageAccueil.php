@@ -1,5 +1,13 @@
 <h1>Accueil</h1>
-<a href="/creerEquipe">Créer une équipe</a>
+<?php if(isset($_SESSION['user'])) : ?>
+    <a href="/creerEquipe">Créer une équipe</a>
+<?php endif ?>
+<?php if(isset($_SESSION['user'])) : ?>
+    <a href="/creerChampion">Créer un champion</a>
+<?php endif ?>
+<?php if(isset($_SESSION['user'])) : ?>
+    <a href="/creerObjet">Créer un objet</a>
+<?php endif ?>
 <?php foreach($champions as $champion) : ?>
     <h2><?= $champion->championNom ?></h2>
     <p><?= $champion->championRole ?></p>
