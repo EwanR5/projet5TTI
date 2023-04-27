@@ -1,9 +1,9 @@
 <?php
 
-function SelectAllChampion($pdo)
+function SelectAllChampionWithRole($pdo)
 {
     try {
-        $query = "select * from champions";
+        $query = "select * from champions inner join roles on champions.championRole = roles.roleId order by championNom asc";
         $SelectAllChampion = $pdo->prepare($query);
         $SelectAllChampion->execute();
         $champions = $SelectAllChampion->fetchAll();
@@ -13,7 +13,7 @@ function SelectAllChampion($pdo)
         die($message);
     }
 }
-function CreationChampion($pdo)
+function CreationChampionWithRole($pdo)
 {
     try{
         $query = "insert into champions (championNom, championRole) values (:championNom, :championRole)";

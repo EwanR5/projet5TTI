@@ -58,7 +58,7 @@ function MiseAJourUtilisateur($pdo)
 function SupprimerUtilisateur($pdo)
 {
     try {
-        $query = "Delete * from utilisateurs where utilisateurId = :utilisateurId";
+        $query = "Delete from utilisateurs where utilisateurId = :utilisateurId";
         $SupprimerUtilisateur = $pdo->prepare($query);
         $SupprimerUtilisateur->execute([
             'utilisateurId' => $_SESSION["user"]->utilisateurId

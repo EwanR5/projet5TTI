@@ -11,7 +11,7 @@
         <select name="role" id="role">
             <option value="">--Role--</option>
             <?php foreach($champions as $champion) : ?>
-                <option value="<?= $champion->championRole ?>"><?= $champion->championNom ?></option>
+                <option value="<?= $champion->RoleNom ?>"></option>
             <?php endforeach ?>
             </option>
         </select>

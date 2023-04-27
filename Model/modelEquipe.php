@@ -19,13 +19,27 @@ function creationEquipe($pdo)
         die($message);
     }
 }
+function SelectEquipesJoueur($pdo)
+{
+    try{
+        $query = "Select * from Equipes where utilisateurId = :utilisateurId";
+        $newUser = $pdo->prepare($query);
+        $newUser->execute([
+            'utilisateurId' => $_SESSION["user"] -> utilisateurId,
+        ]);
+    }
+    catch(PDOException $e){
+        $message = $e->getMessage();
+        die($message);
+    }
+}
 function SupprimerEquipesUtilisateur($pdo) 
 {
     try {
-        $query = "Delete * from Equipes where utilisateurId = :utilisateurId";
+        $query = "Delete from Equipes where utilisateurId = :utilisateurId";
         $SupprimerUtilisateur = $pdo->prepare($query);
         $SupprimerUtilisateur->execute([
-            'utilisateurId' => $_SESSION["user"]->utilisateurId
+            'utilisateurId' => $_SESSION["user"]->utilisateurId,
         ]);
     } catch (PDOException $e) {
         $message = $e->getMessage();

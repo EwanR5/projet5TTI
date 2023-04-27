@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model/modelUtilisateur.php";
+require_once "Model/modelEquipe.php";
 
 $uri = $_SERVER['REQUEST_URI'];
 

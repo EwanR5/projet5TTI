@@ -32,6 +32,7 @@
             require_once "Controllers/championsController.php";
             require_once "Controllers/utilisateursController.php";
             require_once "Controllers/equipesController.php";
+            require_once "Controllers/objetsController.php";
         ?>
     </main>
     <footer>
